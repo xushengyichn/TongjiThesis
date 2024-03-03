@@ -636,6 +636,12 @@
 % 院系中英文名称。
 \tongji@def@term{cdepartment}
 \tongji@def@term{edepartment}
+% 研究方向
+\tongji@def@term{cresearchfield}
+\tongji@def@term{eresearchfield}
+% 联合培养单位
+\tongji@def@term{cjointtraining}
+\tongji@def@term{ejointtraining}
 % 学位中英文名称。
 \tongji@def@term{cmajor}
 \tongji@def@term{emajor}
@@ -643,7 +649,10 @@
 \tongji@def@term{cdate}
 \tongji@def@term{edate}
 % 为了兼容老版本同济模板的封面定义,仍然使用majorfirst，majorsecond
-% 这里majorfirst表示学科门类如工学、理学，majorsecond表示一级学科或二级学科。
+% 这里majorfirst表示一级学科majorsecond二级学科。
+% category表示学科门类 表示学科门类如工学、理学。
+\tongji@def@term{ccategories}
+\tongji@def@term{ecategories}
 \tongji@def@term{cmajorfirst}
 \tongji@def@term{cmajorsecond}
 \tongji@def@term{emajorfirst}
@@ -694,12 +703,12 @@
       \includegraphics[width=10cm]{tongji-whole-logo.pdf}
     }
     \\[-.6cm] % logo
-    \parbox[t][9cm][t]{\paperwidth-7cm}
+    \parbox[t][8.5cm][t]{\paperwidth-7cm}
     { 
       % \renewcommand{\baselinestretch}{1} %单倍行距
       \begin{center}
             \erhao[1]{{\bfseries\lishu\tongji@capply}}
-            \iftongji@academic{\par\vskip 1.8cm}
+            \iftongji@academic{\par\vskip 0.4cm \sihao[1]{{\bfseries\lishu（学术学位）}} \par\vskip 0.9cm}
             \else \iftongji@profession{\par\vskip 0.4cm \sihao[1]{{\bfseries\lishu（专业学位）}} \par\vskip 0.9cm}
                     \else \iftongji@equaleducation {\par\vskip 0.4cm \sihao[1]{{\bfseries\lishu（同等学力）}} \par\vskip 0.9cm}                        
                           \fi
@@ -718,7 +727,7 @@
     }
     \vskip -0.4cm 
     \hspace*{1.2cm}
-    \parbox[t][8.5cm][t]{\textwidth}
+    \parbox[t][9.5cm][t]{\textwidth}
     {
       {
         \fangsong\sanhao[1.5]        
@@ -753,7 +762,10 @@
               \setlength{\tongji@title@width}{4em}
             \else
               \setlength{\tongji@title@width}{5em}
-            \fi                        
+            \fi 
+            \unless\ifx\tongji@cjointtraining\@empty
+            \setlength{\tongji@title@width}{6em}
+            \fi                            
             \ifxetex % todo: ugly codes
               \begin{tabular}{p{\tongji@title@width}@{}c@{\extracolsep{8pt}}p{7cm}l}
             \else
@@ -765,15 +777,23 @@
             & \tongji@studentnumber\\
             \tongji@put@title{\tongji@cdepartmenttitle}    & \tongji@title@sep 
             & \tongji@cdepartment\\
+            \tongji@put@title{\tongji@ccategoriestitle}    & \tongji@title@sep
+            & \tongji@ccategories\\
             \tongji@put@title{\tongji@cmajorfirsttitle}    & \tongji@title@sep
             & \tongji@cmajorfirst\\
             \tongji@put@title{\tongji@cmajorsecondtitle}   & \tongji@title@sep
             & \tongji@cmajorsecond\\
+            \tongji@put@title{\tongji@cresearchfieldtitle}   & \tongji@title@sep
+            & \tongji@cresearchfield\\
             \tongji@put@title{\tongji@csupervisortitle}    & \tongji@title@sep 
             & \tongji@csupervisor\\
             \ifx\tongji@cassosupervisor\@empty\else
               \tongji@put@title{\tongji@cassosupertitle}   & \tongji@title@sep 
               & \tongji@cassosupervisor\\
+            \fi
+            \ifx\tongji@cjointtraining\@empty\else
+            \tongji@put@title{\tongji@cjointtrainingtitle}    & \tongji@title@sep 
+            & \tongji@cjointtraining\\
             \fi
           \fi               
           \end{tabular}
@@ -805,7 +825,7 @@
       }
       \\[-.6cm] % logo
       \vspace*{0.3cm}
-      \parbox[t][9cm][t]{\paperwidth-6cm}
+      \parbox[t][8cm][t]{\paperwidth-6cm}
       {
         % \renewcommand{\baselinestretch}{1}
         \begin{center}
@@ -820,25 +840,30 @@
         \end{center}
       }
        %\vskip 0.5cm 
-      \hspace*{1.2cm}
-      \parbox[t][8.7cm][t]{\textwidth}
+      \hspace*{-0.5cm}
+      \parbox[t][9.7cm][t]{\textwidth}
       {
         \sanhao[1.5] 
         \begin{center}
-          \begin{tabular}{lp{6cm}} 
+          \begin{tabular}{lp{8cm}} 
             Candidate :         & \tongji@eauthor       \\
             Student Number :    & \tongji@studentnumber \\
             School/Department : & \tongji@edepartment   \\
-            Discipline :        & \tongji@emajorfirst   \\
-            Major :             & \tongji@emajorsecond  \\
+            Categories :        & \tongji@ecategories   \\
+            First-level Discipline/Degree :             & \tongji@emajorfirst  \\
+            Second-level Discipline/Degree's Field :             & \tongji@emajorsecond  \\
+            Research Fileds :        & \tongji@eresearchfield \\
             Supervisor :        & \tongji@esupervisor \\
             \ifx\tongji@eassosupervisor\@empty\else
               Associate Supervisor : & \tongji@eassosupervisor \\
-            \fi     
+            \fi    
+            \ifx\tongji@ejointtraining\@empty\else
+            Joint Training Institution : & \tongji@ejointtraining \\
+          \fi   
           \end{tabular}
         \end{center}
       }
-      \vskip -2cm 
+      % \vskip -2cm 
       \begin{center}
         \sanhao\tongji@edate 
       \end{center}
