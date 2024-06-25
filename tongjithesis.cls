@@ -969,7 +969,7 @@
 % 主要符号对照表  
 % 根据清华v5.2.1的改动进行重设，即利用 \pkg{enumitem} 改造环境定义，更直观。
 \newenvironment{denotation}[1][2.5cm]{
-  \tongji@chapter*{\tongji@denotation@name}[\wuhao\songti\tongji@schoolname~\tongji@capply~\tongji@denotation@name]
+  \tongji@chapter*{\tongji@denotation@name}[\wuhao\songti\centering\tongji@denotation@name]
   \vskip-30bp\xiaosi[1.6]\begin{tongji@denotation}[labelwidth=#1]
 }{%
   \end{tongji@denotation}
@@ -1015,11 +1015,11 @@
 \def\tongji@listof#1{% #1: float type
   \@ifstar
     {%带星的不加入目录，如\listoftables*
-      \tongji@chapter*[]{\csname list#1name\endcsname}[\wuhao\songti\tongji@schoolname~\tongji@capply~\csname list#1name\endcsname]
+      \tongji@chapter*[]{\csname list#1name\endcsname}[\wuhao\songti\centering\csname list#1name\endcsname]
       \tongji@starttoc{#1}
       \clearpage}
     {%加入目录
-     \tongji@chapter*{\csname list#1name\endcsname}[\wuhao\songti\tongji@schoolname~\tongji@capply~\csname list#1name\endcsname]
+     \tongji@chapter*{\csname list#1name\endcsname}[\wuhao\songti\centering\csname list#1name\endcsname]
      \tongji@starttoc{#1}
      \clearpage}
   }
