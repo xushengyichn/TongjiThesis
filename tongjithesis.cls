@@ -300,8 +300,7 @@
   \renewcommand{\footrulewidth}{0pt}}
 \fancypagestyle{tongji@headings}{%
   \fancyhead{}
-  \fancyhead[RO]{\wuhao\songti\leftmark}
-  \fancyhead[LE]{\wuhao\songti\tongji@schoolname~\tongji@capply~\tongji@cheadingtitle}
+  \fancyhead[C]{\wuhao\songti\leftmark}
   \fancyfoot{}
   \fancyfoot[C]{\songti\wuhao\thepage}
   \renewcommand{\headrulewidth}{0.4pt}
@@ -578,7 +577,7 @@
 % 减小目录项中的导引小点跟页码之间的留白
 % 目录生成命令。
 \renewcommand\tableofcontents{%
-  \tongji@chapter*[]{\contentsname}[\wuhao\songti\tongji@schoolname~\tongji@capply~\contentsname] 
+  \tongji@chapter*[]{\contentsname}[\wuhao\songti\centering\contentsname] 
   \xiaosi[1.5]\@starttoc{toc}\normalsize\clearpage}
 % 同济要求目录的行距为18磅
 % 调整目录样式，允许指定目录字体。
@@ -934,7 +933,7 @@
 \tongji@parse@keywords{ekeywords}
 \newcommand{\tongji@makeabstract}{%
   \cleardoublepage % always openright for Abstract
-  \tongji@chapter*[]{\cabstractname}[\wuhao\songti\tongji@schoolname~\tongji@capply~\cabstractname] % no tocline
+  \tongji@chapter*[]{\cabstractname}[\wuhao\songti\centering\cabstractname] % no tocline
   \pagenumbering{Roman}
   \tongji@cabstract
   \vskip12bp
@@ -942,13 +941,12 @@
   \noindent\hangindent\wd0\hangafter1
     \box0\tongji@ckeywords
   % \cleardoublepage % always openright for Abstract  
-  \tongji@chapter*[]{\eabstractname}[\wuhao\tongji@eschoolname~\tongji@edegree~\eabstractname] % no tocline
+  \tongji@chapter*[]{\eabstractname}[\wuhao\centering\eabstractname] % no tocline
   \tongji@eabstract
   \vskip12bp
   \setbox0=\hbox{{\bfseries Key Words:\enskip}}
   \noindent\hangindent\wd0\hangafter1
     \box0\tongji@ekeywords}
-
 
 % 生成封面总命令。
 \newcommand{\makecover}{
