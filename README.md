@@ -1,3 +1,13 @@
+<!--
+ * @Author: xushengyichn xushengyichn@outlook.com
+ * @Date: 2024-03-03 16:07:17
+ * @LastEditors: xushengyichn xushengyichn@outlook.com
+ * @LastEditTime: 2024-06-25 23:05:58
+ * @FilePath: \TongjiThesis\README.md
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+-->
 # TongjiThesis
 ## 总览
 个人自用同济大学硕博士论文LaTeX模板。
@@ -30,3 +40,4 @@ __注意：__ 采用`biber`编译参考文献。
 相较于老版tongjithesis，目前改动如下:
 1. 修改新版写作规范对封面的要求（目前仅修改了学术学位部分）
 2. 在thesis.tex增加魔术注释，方便编译
+3. 根据2024年6月时的模板要求，将页眉居中
