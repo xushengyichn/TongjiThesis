@@ -989,7 +989,7 @@
 
 % 致谢以及声明
 \NewDocumentEnvironment{acknowledgement}{}{%
-\tongji@chapter*[\tongji@ackname]{\tongji@ackname}[\wuhao\songti\tongji@schoolname~\tongji@capply~\tongji@ackname] 
+\tongji@chapter*[\tongji@ackname]{\tongji@ackname}[\wuhao\songti\centering\tongji@ackname] 
 \fangsong 
  }{\clearpage}
 % \let\ack\acknowledgement
@@ -1050,7 +1050,7 @@
 % 附录
 \fancypagestyle{tongji@appendix@heading}{%
   \fancyhead{}
-  \fancyhead[RO,LE]{\wuhao\songti\tongji@schoolname~\tongji@capply~\appendixname}
+  \fancyhead[RO,LE]{\wuhao\songti\centering\appendixname}
   \fancyfoot{}
   \fancyfoot[C]{\songti\wuhao\thepage}
   \renewcommand{\headrulewidth}{0.4pt}
@@ -1069,7 +1069,7 @@
 
 % 个人简历
 \newenvironment{resume}{%
-  \tongji@chapter*{\tongji@resume@title}[\wuhao\songti\tongji@schoolname~\tongji@capply~\tongji@resume@title] 
+  \tongji@chapter*{\tongji@resume@title}[\wuhao\songti\centering\tongji@resume@title] 
   \wuhao[1.5] 
   \setlist[enumerate,1]{leftmargin=2em}   %设置enumerate左间隙距离
   }{\clearpage}
